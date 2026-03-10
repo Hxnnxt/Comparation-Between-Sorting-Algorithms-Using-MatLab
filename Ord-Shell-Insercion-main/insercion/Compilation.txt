@@ -1,0 +1,6 @@
+gcc Insercion_TEST.c -o INSERCION_TEST.exe
+gcc Insercion_TIME.c -o INSERCION_TIME.exe
+
+INSERCION_TEST.exe n < numeros10millones.txt >>INSERCION_TEST.txt
+INSERCION_TIME.exe n < numeros10millones.txt >>INSERCION_TIME.txt
+

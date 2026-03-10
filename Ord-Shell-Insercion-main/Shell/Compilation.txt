@@ -1,0 +1,6 @@
+gcc Shell_TEST.c -o SHELL_TEST.exe
+gcc Shell_TIME.c -o SHELL_TIME.exe
+
+SHELL_TEST.exe n < numeros10millones.txt >>SHELL_TEST.txt
+SHELL_TIME.exe n < numeros10millones.txt >>SHELL_TIME.txt
+
