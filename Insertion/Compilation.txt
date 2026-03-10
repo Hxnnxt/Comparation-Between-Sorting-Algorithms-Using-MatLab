@@ -4,3 +4,6 @@ gcc Insercion_TIME.c -o INSERCION_TIME.exe
 INSERCION_TEST.exe n < numeros10millones.txt >>INSERCION_TEST.txt
 INSERCION_TIME.exe n < numeros10millones.txt >>INSERCION_TIME.txt
 
+.o ARCHIVE
+=====================================
+gcc -c tiempo.c -o tiempo.o

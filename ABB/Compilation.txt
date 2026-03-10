@@ -7,6 +7,7 @@ ABB_TEST.exe n <numeros10millones.txt >>ABB_TEST.txt
 ABB_TIME.exe n <numeros10millones.txt >>ABB_TIME.txt
 =====================================
 .o Archive
+gcc -c tiempo.c -o tiempo.o
 gcc -c TADArbolBin.c -o TADArbolBin.o
 
 

@@ -6,5 +6,6 @@ EXECUTION:
 mergeSort_TEST.exe n <numeros10millones.txt >>mergeSort_TEST.txt
 mergeSort_TIME.exe n <numeros10millones.txt >>mergeSort_TIME.txt
 =====================================
-.o Archive
-gcc -c TAD-Merge-Sort.c -o TAD-Merge-Sort.o
+.o ARCHIVE
+=====================================
+gcc -c tiempo.c -o tiempo.o

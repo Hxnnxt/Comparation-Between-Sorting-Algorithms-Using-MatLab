@@ -6,7 +6,8 @@ EXECUTION:
 quickSort_TEST.exe n <numeros10millones.txt >>quickSort_TEST.txt
 quickSort_TIME.exe n <numeros10millones.txt >>quickSort_TIME.txt
 =====================================
-.o Archive
-gcc -c TADQuickSort.c -o TADQuickSort.o
+.o ARCHIVE
+=====================================
+gcc -c tiempo.c -o tiempo.o
 
 

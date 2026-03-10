@@ -1,24 +1,33 @@
+COMPILATION BUBBLE SORT SIMPLE
+=======================================
 gcc bubblesort_test_simple.c -o bubblesort_test_simple.exe
 gcc bubblesort_time_simple.c -o bubblesort_time_simple.exe
-
+EXECUTION BUBBLE SORT SIMPLE
+=======================================
 bubblesort_test_simple.exe n < numeros10millones.txt >>bubblesort_test_simple.txt
 bubblesort_time_simple.exe n < numeros10millones.txt >>bubblesort_time_simple.txt
 
-
-
+COMPILATION BUBBLE OPTIMIZED 1 SORT SIMPLE
+=======================================
 gcc bubblesort_test_op1.c -o bubblesort_test_op1.exe
 gcc bubblesort_time_op1.c -o bubblesort_time_op1.exe
-
+EXECUTION BUBBLE OPTIMIZED 1 SORT SIMPLE
+=======================================
 bubblesort_test_op1.exe n < numeros10millones.txt >>bubblesort_test_op1.txt
 bubblesort_time_op1.exe n < numeros10millones.txt >>bubblesort_time_op1.txt
 
-
-
+COMPILATION BUBBLE OPTIMIZED 2 SORT SIMPLE
+=======================================
 gcc bubblesort_test_op2.c -o bubblesort_test_op2.exe
 gcc bubblesort_time_op2.c -o bubblesort_time_op2.exe
-
+EXECUTION BUBBLE OPTIMIZED 2 SORT SIMPLE
+=======================================
 bubblesort_test_op2.exe n < numeros10millones.txt >>bubblesort_test_op2.txt
 bubblesort_time_op2.exe n < numeros10millones.txt >>bubblesort_time_op2.txt
+
+.o ARCHIVE
+=====================================
+gcc -c tiempo.c -o tiempo.o
 
 
 
