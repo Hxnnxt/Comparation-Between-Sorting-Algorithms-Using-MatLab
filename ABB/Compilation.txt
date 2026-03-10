@@ -1,10 +1,10 @@
 COMPILATION:
-gcc TADArbolBin.o ABB_TEST.c -o ABB_TEST.exe 
-gcc TADArbolBin.o ABB_TIME.c -o ABB_TIME.exe 
+gcc TADArbolBin.o ABB_TEST.c -o ABB_TEST
+gcc TADArbolBin.o ABB_TIME.c -o ABB_TIME
 =====================================
 EXECUTION:
-ABB_TEST.exe n <numeros10millones.txt >>ABB_TEST.txt
-ABB_TIME.exe n <numeros10millones.txt >>ABB_TIME.txt
+./ABB_TEST n <numeros10millones.txt >>ABB_TEST.txt
+./ABB_TIME n <numeros10millones.txt >>ABB_TIME.txt
 =====================================
 .o Archive
 gcc -c tiempo.c -o tiempo.o

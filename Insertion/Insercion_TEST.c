@@ -17,15 +17,7 @@ void insercion(int *A, int n) {
     }
 }
 
-/* Verificar si el arreglo está ordenado */
-int esta_ordenado(int *A, int n) {
-    int i;
-    for (i = 1; i < n; i++)
-        if (A[i-1] > A[i])
-            return 0;
 
-    return 1;
-}
 
 int main(int argc, char *argv[]) {
 
@@ -43,9 +35,12 @@ int main(int argc, char *argv[]) {
 
     insercion(A, n);
 
-    printf("Verificacion del arreglo ordenado: %s\n",
-           esta_ordenado(A,n) ? "OK" : "ERROR");
-
-    free(A);
+    printf("\nArreglo ordenado:\n");
+	for (int j = 0; j < n; j++)
+	{
+		printf("[%d]", A[j]);
+	}
+	free(A);
+	printf("\n");
     return 0;
 }

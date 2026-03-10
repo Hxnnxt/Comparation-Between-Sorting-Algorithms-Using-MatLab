@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
     Merge(C,A,0,n-1);    
 
     printf("\nArreglo ordenado:\n");
-    for (int j = 0; j < Tamano(&m); j++)
+    for (int j = 0; j < n; j++)
     {
         printf("[%d]", A[j]);
     }

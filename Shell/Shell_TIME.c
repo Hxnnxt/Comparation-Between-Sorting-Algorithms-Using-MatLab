@@ -1,6 +1,31 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "SortShell.h"
+
+/* ShellSort */
+void shellsort(int *A, int n) {
+    int gap = n / 2;
+
+    while (gap >= 1) {
+        int cambios;
+
+        do {
+            cambios = 0;
+            int i;
+
+            for (i = gap; i < n; i++) {
+                if (A[i-gap] > A[i]) {
+                    int temp = A[i];
+                    A[i] = A[i-gap];
+                    A[i-gap] = temp;
+                    cambios++;
+                }
+            }
+
+        } while (cambios != 0);
+
+        gap = gap / 2;
+    }
+}
 
 //**************************************************
 //Libreria necesaria para medir rendimiento en Linux
@@ -43,7 +68,13 @@ int main(int argc, char *argv[])
 //uswtime(&utime1, &stime1, &wtime1);
 //******************************************************************
 
-    free(A);
+    printf("\nArreglo ordenado:\n");
+	for (int j = 0; j < n; j++)
+	{
+		printf("[%d]", A[j]);
+	}
+	free(A);
+	printf("\n");
 
 //***************************************************************************************************	
 //Cálculo del tiempo de ejecución del programa

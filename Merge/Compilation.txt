@@ -1,10 +1,10 @@
 COMPILATION:
-gcc TAD-Merge-Sort.o mergeSort_TEST.c -o mergeSort_TEST.exe 
-gcc TAD-Merge-Sort.o mergeSort_TIME.c -o mergeSort_TIME.exe 
+gcc mergeSort_Test.c -o mergeSort_TEST
+gcc mergeSort_Time.c -o mergeSort_TIME
 =====================================
 EXECUTION:
-mergeSort_TEST.exe n <numeros10millones.txt >>mergeSort_TEST.txt
-mergeSort_TIME.exe n <numeros10millones.txt >>mergeSort_TIME.txt
+./mergeSort_TEST n <numeros10millones.txt >>mergeSort_TEST.txt
+./mergeSort_TIME n <numeros10millones.txt >>mergeSort_TIME.txt
 =====================================
 .o ARCHIVE
 =====================================

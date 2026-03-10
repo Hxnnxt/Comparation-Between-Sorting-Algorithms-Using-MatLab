@@ -53,10 +53,15 @@ int main(int argc, char *argv[]) {
 
     shellsort(A,n);
 
-    printf("Verificacion del arreglo ordenado: %s\n",
-           esta_ordenado(A,n) ? "OK" : "ERROR");
+    printf("\nArreglo ordenado:\n");
+	for (int j = 0; j < n; j++)
+	{
+		printf("[%d]", A[j]);
+	}
+	free(A);
+	printf("\n");
 
-    free(A);
+
 
     return 0;
 }

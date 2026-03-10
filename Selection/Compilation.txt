@@ -1,8 +1,8 @@
-gcc selectionsort_test.c -o selectionsort_test.exe
-gcc selectionsort_time.c -o selectionsort_time.exe
+gcc selectionsort_test.c -o selectionsort_test
+gcc selectionsort_time.c -o selectionsort_time
 
-selectionsort_test.exe n < numeros10millones.txt >>selectionsort_test.txt
-selectionsort_time.exe n < numeros10millones.txt >>selectionsort_time.txt
+./selectionsort_test n < numeros10millones.txt >>selectionsort_test.txt
+./selectionsort_time n < numeros10millones.txt >>selectionsort_time.txt
 
 .o ARCHIVE
 =====================================

@@ -8,23 +8,24 @@ void Intercambio(int A[], int i, int j);
 int main(int argc, char *argv[])
 {
     int n = atoi(argv[1]);
+    int *A = malloc(sizeof(int) * n);
+	if (A == NULL)
+	{
+		printf("\nError al reservar memoria para %d elementos\n", n);
+		exit(EXIT_FAILURE);
+	}
 
-    quickSort q;
-    Inicializar(&q, n);
-
-    for (int j = 0; j < n; j++)
-    {
-        int val;
-        scanf("%d", &val);
-        EscribirPosicion(&q, j, val);
-    }
+	for (int j = 0; j < n; j++)
+	{
+		scanf("%d", &A[j]);
+	}
 
     QuickSort(A,0,n-1);
 
     printf("\nArreglo ordenado:\n");
-    for (int j = 0; j < Tamano(&q); j++)
+    for (int j = 0; j < n; j++)
     {
-        printf("[%d]", LeerPosicion(&q, j).numero);
+        printf("[%d]",A[j]);
     }
 
     printf("\n");
