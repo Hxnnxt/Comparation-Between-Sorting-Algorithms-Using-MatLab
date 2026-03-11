@@ -3,14 +3,17 @@
 #include "tiempo.h"
 //**************************************************
 //Libreria necesaria para medir rendimiento en Linux
-//#include "tiempo.h"
+#include "tiempo.h"
 //**************************************************
 
+void QuickSort(int A[], int p, int r);
+void Intercambio(int A[], int i, int j);
+int Pivot(int A[], int p, int r);
 int main(int argc, char *argv[])
 {
 //********************************************************
 //Variables necesarias para poder medir el tiempo en Linux
-//	double utime0, stime0, wtime0, utime1, stime1, wtime1;
+	double utime0, stime0, wtime0, utime1, stime1, wtime1;
 //********************************************************
 
     int n = atoi(argv[1]);
@@ -30,18 +33,15 @@ int main(int argc, char *argv[])
 
 //******************************************************************
 //Iniciar el conteo del tiempo para las evaluaciones de rendimiento
-//	uswtime(&utime0, &stime0, &wtime0);
+	uswtime(&utime0, &stime0, &wtime0);
 //******************************************************************
 
     QuickSort(A,0,n-1);
 
 //******************************************************************
 //Evaluar los tiempos de ejecución
-//	uswtime(&utime1, &stime1, &wtime1);
+	uswtime(&utime1, &stime1, &wtime1);
 //******************************************************************
-
-    printf("\n");
-
 //***************************************************************************************************
 //Cálculo del tiempo de ejecución del programa
 //	printf("real (Tiempo total)            %.10f s\n",  wtime1 - wtime0);
@@ -53,11 +53,11 @@ int main(int argc, char *argv[])
 
 //***************************************************************************************************
 //Mostrar los tiempos en formato exponencial
-//	printf("real (Tiempo total)            %.10e s\n",  wtime1 - wtime0);
-//	printf("user (Tiempo de procesamiento en CPU) %.10e s\n",  utime1 - utime0);
-//	printf("sys  (Tiempo en acciones de E/S)  %.10e s\n",  stime1 - stime0);
-//	printf("CPU/Wall   %.10f %% \n", 100.0 * (utime1 - utime0 + stime1 - stime0) / (wtime1 - wtime0));
-//	printf("\n");
+	printf("real (Tiempo total)            %.10e s\n",  wtime1 - wtime0);
+	printf("user (Tiempo de procesamiento en CPU) %.10e s\n",  utime1 - utime0);
+	printf("sys  (Tiempo en acciones de E/S)  %.10e s\n",  stime1 - stime0);
+	printf("CPU/Wall   %.10f %% \n", 100.0 * (utime1 - utime0 + stime1 - stime0) / (wtime1 - wtime0));
+	printf("\n");
 //***************************************************************************************************
 
     return 0;

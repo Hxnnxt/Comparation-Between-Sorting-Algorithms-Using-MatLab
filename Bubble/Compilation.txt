@@ -1,7 +1,7 @@
 COMPILATION BUBBLE SORT SIMPLE
 =======================================
 gcc bubblesort_test_simple.c -o bubblesort_test_simple
-gcc bubblesort_time_simple.c -o bubblesort_time_simple
+gcc tiempo.o bubblesort_time_simple.c -o bubblesort_time_simple
 EXECUTION BUBBLE SORT SIMPLE
 =======================================
 ./bubblesort_test_simple n < numeros10millones.txt >>bubblesort_test_simple.txt
@@ -10,7 +10,7 @@ EXECUTION BUBBLE SORT SIMPLE
 COMPILATION BUBBLE OPTIMIZED 1 SORT SIMPLE
 =======================================
 gcc bubblesort_test_op1.c -o bubblesort_test_op1
-gcc bubblesort_time_op1.c -o bubblesort_time_op1
+gcc tiempo.o bubblesort_time_op1.c -o bubblesort_time_op1
 EXECUTION BUBBLE OPTIMIZED 1 SORT SIMPLE
 =======================================
 ./bubblesort_test_op1 n < numeros10millones.txt >>bubblesort_test_op1.txt
@@ -19,7 +19,7 @@ EXECUTION BUBBLE OPTIMIZED 1 SORT SIMPLE
 COMPILATION BUBBLE OPTIMIZED 2 SORT SIMPLE
 =======================================
 gcc bubblesort_test_op2.c -o bubblesort_test_op2
-gcc bubblesort_time_op2.c -o bubblesort_time_op2
+gcc tiempo.o bubblesort_time_op2.c -o bubblesort_time_op2
 EXECUTION BUBBLE OPTIMIZED 2 SORT SIMPLE
 =======================================
 ./bubblesort_test_op2 n < numeros10millones.txt >>bubblesort_test_op2.txt

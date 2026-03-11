@@ -1,16 +1,18 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "tiempo.h"
 
 //**************************************************
 //Libreria necesaria para medir rendimiento en Linux
-//#include "tiempo.h"
+#include "tiempo.h"
 //**************************************************
+
+void bubble (int A[],int n);
+
 int main(int argc, char *argv[])
 {
 //********************************************************
 //Variables necesarias para poder medir el tiempo en Linux
-//	double utime0, stime0, wtime0,utime1, stime1, wtime1;
+	double utime0, stime0, wtime0,utime1, stime1, wtime1;
 //********************************************************
     int i;
     int n = atoi(argv[1]);
@@ -28,12 +30,12 @@ int main(int argc, char *argv[])
 
 //******************************************************************	
 //Iniciar el conteo del tiempo para las evaluaciones de rendimiento
-//uswtime(&utime0, &stime0, &wtime0);
+uswtime(&utime0, &stime0, &wtime0);
 //******************************************************************
     bubble(A,n);
 //******************************************************************	
 //Evaluar los tiempos de ejecución 
-//uswtime(&utime1, &stime1, &wtime1);
+uswtime(&utime1, &stime1, &wtime1);
 //******************************************************************
     free(A);
 //***************************************************************************************************	
@@ -48,10 +50,23 @@ int main(int argc, char *argv[])
 //***************************************************************************************************	
 //Mostrar los tiempos en formato exponecial
 //	printf("\n");
-//	printf("real (Tiempo total)  %.10e s\n",  wtime1 - wtime0);
-//	printf("user (Tiempo de procesamiento en CPU) %.10e s\n",  utime1 - utime0);
-//	printf("sys (Tiempo en acciónes de E/S)  %.10e s\n",  stime1 - stime0);
-//	printf("CPU/Wall   %.10f %% \n",100.0 * (utime1 - utime0 + stime1 - stime0) / (wtime1 - wtime0));
-//	printf("\n");
+	printf("real (Tiempo total)  %.10e s\n",  wtime1 - wtime0);
+	printf("user (Tiempo de procesamiento en CPU) %.10e s\n",  utime1 - utime0);
+	printf("sys (Tiempo en acciónes de E/S)  %.10e s\n",  stime1 - stime0);
+	printf("CPU/Wall   %.10f %% \n",100.0 * (utime1 - utime0 + stime1 - stime0) / (wtime1 - wtime0));
+	printf("\n");
 //***************************************************************************************************	
+}
+
+void bubble (int A[],int n){
+    int i,j,aux;
+    for(i=0;i<=n-2;i++){
+        for(j=0;j<=n-2;j++){
+            if(A[j] > A[j+1]){
+                aux = A[j];
+                A[j] = A[j+1];
+                A[j+1] = aux;
+            }
+        }
+    }
 }

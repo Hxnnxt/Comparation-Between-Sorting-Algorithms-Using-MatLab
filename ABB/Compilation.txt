@@ -1,6 +1,6 @@
 COMPILATION:
 gcc TADArbolBin.o ABB_TEST.c -o ABB_TEST
-gcc TADArbolBin.o ABB_TIME.c -o ABB_TIME
+gcc TADArbolBin.o tiempo.o ABB_TIME.c -o ABB_TIME
 =====================================
 EXECUTION:
 ./ABB_TEST n <numeros10millones.txt >>ABB_TEST.txt
