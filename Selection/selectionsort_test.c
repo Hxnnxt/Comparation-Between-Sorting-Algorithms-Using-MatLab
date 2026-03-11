@@ -24,10 +24,13 @@ int main(int argc, char const *argv[]){
 	selection(A,n);
 	
 	
+    printf("Arreglo ordenado\n");
     for (int i = 0; i < n; i++)
     {
         printf("%d\n",A[i]);
     }
+    free(A);
+    printf("\n");
 
     return 0;
 }

@@ -1,10 +1,15 @@
 COMPILATION:
+<<<<<<< HEAD
 gcc SortHeap.o Heap_TEST.c -o HEAP_TEST.exe 
-gcc SortHeap.o Heap_TIME.c -o HEAP_TIME.exe 
+gcc tiempo.o SortHeap.o Heap_TIME.c -o HEAP_TIME.exe 
+=======
+gcc SortHeap.o Heap_TEST.c -o HEAP_TEST
+gcc SortHeap.o Heap_TIME.c -o HEAP_TIME
+>>>>>>> 4d1d3c7650166ff1ed3c7df78f231f203e78e864
 =====================================
 EXECUTION:
-Heap_TEST.exe n <numeros10millones.txt >>HEAP_TEST.txt
-Heap_TIME.exe n <numeros10millones.txt >>HEAP_TIME.txt
+./Heap_TEST n <numeros10millones.txt >>HEAP_TEST.txt
+Heap_TIME./ n <numeros10millones.txt >>HEAP_TIME.txt
 =====================================
 .o Archive
 gcc -c SortHeap.c -o SortHeap.o
