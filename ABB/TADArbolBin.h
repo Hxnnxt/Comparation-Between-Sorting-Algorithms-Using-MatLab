@@ -34,8 +34,6 @@ posicion HijoIzquierdo(arbolBinario *a,posicion p);
 /*Verifica si un nodo está vacío. Si el nodo está vacío regresa FALSE, por el contrario si el nodo NO
 está vacío regresa TRUE*/
 boolean Vacio(arbolBinario *a);
-/*Verifica si el nodo dado pertenece al ABB*/
-boolean NodoNulo(arbolBinario *a,posicion p);
 /*Regresa el elemento del nodo dado*/
 elemento LeerNodo(arbolBinario *a,posicion p);
 

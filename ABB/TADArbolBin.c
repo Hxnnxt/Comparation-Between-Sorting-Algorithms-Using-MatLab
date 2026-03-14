@@ -40,31 +40,33 @@ posicion Raiz(arbolBinario *a)
 /*Regresa el hijo derecho del nodo actual*/
 posicion HijoDerecho(arbolBinario *a, posicion p)
 {
-  posicion regreso = NULL;
-  if (!NodoNulo(&(*a), p))
+  nodo *ret;
+  if (p != NULL)
   {
-    regreso = p->hijoDer;
+    ret = p->hijoDer;
   }
   else
   {
-    printf("ERROR: La posicion dada no es valida (Hijo Derecho)");
+    ret = NULL;
   }
-  return regreso;
+
+  return ret;
 }
 
 /*Regresa el hijo izquierdo del nodo actual*/
 posicion HijoIzquierdo(arbolBinario *a, posicion p)
 {
-  posicion regreso = NULL;
-  if (!NodoNulo(&(*a), p))
+  nodo *ret;
+  if (p != NULL)
   {
-    regreso = p->hijoIzq;
+    ret = p->hijoIzq;
   }
   else
   {
-    printf("ERROR: La posicion dad no es valida (Hijo Izquierdo)");
+    ret = NULL;
   }
-  return regreso;
+
+  return ret;
 }
 
 /*Verifica si un nodo está vacío. Si el nodo está vacío regresa FALSE, por el contrario si el nodo NO
@@ -74,45 +76,42 @@ boolean Vacio(arbolBinario *a)
   return ((*a) == NULL);
 }
 
-/*Verifica si el nodo dado pertenece al ABB*/
-boolean NodoNulo(arbolBinario *a, posicion p)
-{
-  boolean respuesta = TRUE;
-  if (!(*a == NULL || p == NULL))
-  {
-    if (!(*a == p))
-    {
-      if ((*a)->hijoIzq != NULL)
-        respuesta = NodoNulo(&((*a)->hijoIzq), p);
-      if ((*a)->hijoDer != NULL && respuesta == TRUE)
-        respuesta = NodoNulo(&((*a)->hijoDer), p);
-    }
-    else
-    {
-      respuesta = FALSE;
-    }
-  }
-  return respuesta;
-}
-
 /*Regresa el elemento del nodo dado*/
 elemento LeerNodo(arbolBinario *a, posicion p)
 {
-  if (!NodoNulo(&(*a), p))
-  {
-    return p->valor;
-  }
-  else
-  {
-    printf("ERROR: la posicion no es valida (Leer Nodo)");
-    exit(1);
-  }
+  return p->valor;
 }
 
 /*Inserta un elemento en un árbol siguiendo las reglas del ABB*/
 void Insert(arbolBinario *a, int number)
 {
-  if (Vacio(&(*a)))
+  posicion *actual = a;
+  while (*actual != NULL)
+  {
+    if (number < (*actual)->valor.numero)
+    {
+      actual = &((*actual)->hijoIzq);
+    }
+    else if (number > (*actual)->valor.numero)
+    {
+      actual = &((*actual)->hijoDer);
+    }
+    else
+    {
+      return;
+    }
+  }
+  *actual = malloc(sizeof(nodo));
+  if (*actual == NULL)
+  {
+    printf("No se pudo reservar memoria");
+    exit(1);
+  }
+  (*actual)->hijoIzq = NULL;
+  (*actual)->hijoDer = NULL;
+  (*actual)->valor.numero = number;
+
+  /*if (Vacio(&(*a)))
   {
     *a = malloc(sizeof(nodo));
     if (*a == NULL)
@@ -133,7 +132,7 @@ void Insert(arbolBinario *a, int number)
   {
     Insert(&((*a)->hijoDer), number);
     return;
-  }
+  }*/
 }
 
 /*Recorre el ABB y sobreescribe el arreglo dado*/
