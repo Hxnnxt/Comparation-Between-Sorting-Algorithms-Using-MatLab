@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
 
 //******************************************************************	
 //Iniciar el conteo del tiempo para las evaluaciones de rendimiento
-//uswtime(&utime0, &stime0, &wtime0);
+uswtime(&utime0, &stime0, &wtime0);
 //******************************************************************
     bubbleop1(A,n);
 //******************************************************************	
