@@ -57,11 +57,31 @@ int main(int argc, char *argv[])
 //***************************************************************************************************	
 return 0;
 }
+/*
+---------------------------------------------------------
+Entrada:
+    int A[] -> arreglo de enteros
+    int n   -> tamaño del arreglo
+Descripción:
+    Implementa el algoritmo de burbuja optimizado.
 
+    Mejora:
+    En cada iteración se reduce el número de comparaciones,
+    ya que los elementos más grandes se van colocando al
+    final del arreglo.
+
+    Complejidad:
+    - Peor caso: O(n^2)
+    - Mejor caso: O(n)
+---------------------------------------------------------
+*/
 void bubbleop1 (int A[],int n){
     int i,j,aux;
+	// Recorre el arreglo
     for(i=0;i<=n-2;i++){
+		// Reduce el rango de comparación en cada iteración
         for(j=0;j<=(n-2)-i;j++){
+			// Intercambia si los elementos están desordenados
             if(A[j] > A[j+1]){
                 aux = A[j];
                 A[j] = A[j+1];
