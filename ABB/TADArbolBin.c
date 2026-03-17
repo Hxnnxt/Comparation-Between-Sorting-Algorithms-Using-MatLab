@@ -6,6 +6,19 @@ Fecha: 25 de Febrero del 2026
 #include <stdlib.h>
 #include <string.h>
 #include "TADArbolBin.h"
+/*
+---------------------------------------------------------
+Descripción:
+Este archivo implementa un Árbol Binario de Búsqueda (ABB).
+
+Un ABB cumple:
+- Los valores menores van al subárbol izquierdo
+- Los valores mayores van al subárbol derecho
+
+Se utiliza principalmente para ordenar elementos mediante
+un recorrido InOrden.
+---------------------------------------------------------
+*/
 
 /*Reserva el espacio necesario para crear el ABB*/
 void Inicializar(arbolBinario *a)
@@ -13,19 +26,30 @@ void Inicializar(arbolBinario *a)
   *a = NULL;
 }
 
-/*Libera la memoria necesaria para crear el ABB*/
+/*
+---------------------------------------------------------
+Entrada:
+    arbolBinario *a -> árbol a liberar
+Descripción:
+    Libera la memoria de todos los nodos del árbol
+    utilizando un recorrido recursivo (postorden).
+---------------------------------------------------------
+*/
 void Destruir(arbolBinario *a)
 {
   if (*a != NULL)
   {
+   // Libera subárbol izquierdo
     if ((*a)->hijoIzq != NULL)
     {
       Destruir(&(*a)->hijoIzq);
     }
+    // Libera subárbol derecho
     if ((*a)->hijoDer != NULL)
     {
       Destruir(&(*a)->hijoDer);
     }
+   // Libera el nodo actual
     free(*a);
     *a = NULL;
   }
@@ -36,8 +60,17 @@ posicion Raiz(arbolBinario *a)
 {
   return *a;
 }
-
-/*Regresa el hijo derecho del nodo actual*/
+/*
+---------------------------------------------------------
+Entrada:
+    arbolBinario *a -> árbol
+    posicion p      -> nodo actual
+Salida:
+    posicion -> hijo derecho del nodo
+Descripción:
+    Regresa el hijo derecho del nodo dado.
+---------------------------------------------------------
+*/
 posicion HijoDerecho(arbolBinario *a, posicion p)
 {
   nodo *ret;
@@ -82,10 +115,21 @@ elemento LeerNodo(arbolBinario *a, posicion p)
   return p->valor;
 }
 
-/*Inserta un elemento en un árbol siguiendo las reglas del ABB*/
+/*
+---------------------------------------------------------
+Descripción:
+    Inserta un elemento en el árbol respetando las
+    propiedades del Árbol Binario de Búsqueda (ABB).
+
+    - Menores a la izquierda
+    - Mayores a la derecha
+    - No inserta duplicados
+---------------------------------------------------------
+*/
 void Insert(arbolBinario *a, int number)
 {
   posicion *actual = a;
+  // Busca la posición adecuada para insertar
   while (*actual != NULL)
   {
     if (number < (*actual)->valor.numero)
@@ -98,15 +142,17 @@ void Insert(arbolBinario *a, int number)
     }
     else
     {
-      return;
+      return; // No inserta elementos duplicados
     }
   }
+ // Reserva memoria para el nuevo nodo
   *actual = malloc(sizeof(nodo));
   if (*actual == NULL)
   {
     printf("No se pudo reservar memoria");
     exit(1);
   }
+ // Inicializa el nodo
   (*actual)->hijoIzq = NULL;
   (*actual)->hijoDer = NULL;
   (*actual)->valor.numero = number;
@@ -140,9 +186,11 @@ void InOrden(arbolBinario *a, posicion p, int array[], int *i)
 {
   if (p == NULL)
     return;
-
+ // Recorre subárbol izquierdo
   InOrden(a, HijoIzquierdo(a, p), array, i);
+ // Guarda el valor del nodo en el arreglo
   array[*(i)] = LeerNodo(a, p).numero;
   (*i)++;
+ // Recorre subárbol derecho
   InOrden(a, HijoDerecho(a, p), array, i);
 }
